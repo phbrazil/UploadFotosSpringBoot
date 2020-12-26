@@ -28,9 +28,20 @@ public class FileService {
 
     public void uploadFile(MultipartFile file, int id) {
 
+        //CRIAR DIRETORIO
+        File destFile = new File(uploadDir + File.separator + String.valueOf(id));
+
+        if (!destFile.exists()) {
+            if (destFile.mkdir()) {
+                System.out.println("Diretório criado no caminho " + String.valueOf(destFile));
+            } else {
+                System.out.println("Falha ao criar o diretório " + String.valueOf(destFile));
+            }
+        }
+
         try {
             Path copyLocation = Paths
-                    .get(uploadDir + String.valueOf(id) + File.separator + StringUtils.cleanPath(file.getOriginalFilename()));
+                    .get(uploadDir + File.separator + String.valueOf(id) + File.separator + StringUtils.cleanPath(file.getOriginalFilename()));
             Files.copy(file.getInputStream(), copyLocation, StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             e.printStackTrace();
