@@ -15,13 +15,13 @@
                 <h2 class='text-muted mt-4'>Nova Foto</h2>
                 <form action="#" th:action="@{/AddFoto}" th:object="${foto}" method="post" class="mt-2">
                     <div class='col-md-10 mb-2'>
-                        <input name="nome" th:field="*{nome}" title="Nome" type="text" class="form-control" id="username" placeholder="Maria" value="" maxlength ="15" required>
+                        <input name="name" th:field="*{name}" title="Nome" type="text" class="form-control" id="name" placeholder="Maria" value="" maxlength ="15" required>
                     </div>
                     <div class='col-md-10 mb-2'>
-                        <input name="email" th:field="*{email}" title="Email" type="text" class="form-control" id="nome" placeholder="exemplo@email.com" value="" maxlength ="80" required>
+                        <input name="email" th:field="*{email}" title="Email" type="text" class="form-control" id="email" placeholder="exemplo@email.com" value="" maxlength ="80" required>
                     </div>
                     <div class='col-md-10 mb-2'>
-                        <textarea name="message" th:field="*{message}" title="Mensagem" type="text" class="form-control" id="artista" placeholder="Mensagem" value="" maxlength ="50" required></textarea>
+                        <textarea name="message" th:field="*{message}" title="Mensagem" type="text" class="form-control" id="message" placeholder="Mensagem" value="" maxlength ="50" required></textarea>
                     </div>
                     <div class="col-md-10 custom-file mb-2">
                         <input type="file" onchange="ValidateSize(this)" class="custom-file-input needs-validation" name='anexo'  id = 'i_file' required>
