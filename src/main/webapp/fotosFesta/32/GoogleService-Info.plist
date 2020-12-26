@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>65971837264-pk8nh67jpmvnq5pg5stmnc52fv6steah.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.65971837264-pk8nh67jpmvnq5pg5stmnc52fv6steah</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBuQb-Vz_3Dk_4UA-zoWIoOgU3NJuVBM-g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>65971837264</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>.com.9ember.cyberoficina</string>
+	<key>PROJECT_ID</key>
+	<string>cyber-oficina</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cyber-oficina.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:65971837264:ios:0d74b3c2987d016dcdf455</string>
+	<key>DATABASE_URL</key>
+	<string>https://cyber-oficina.firebaseio.com</string>
+</dict>
+</plist>
