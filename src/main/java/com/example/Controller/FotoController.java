@@ -53,7 +53,7 @@ public class FotoController {
     public String fotoSubmit(@ModelAttribute tbFotos foto, Model fotos,
             @RequestParam("file") MultipartFile file,
             RedirectAttributes redirectAttrs) {
-        
+
         AddFotoDAO add = new AddFotoDAO();
 
         String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -64,7 +64,7 @@ public class FotoController {
         int id = add.addFoto(foto);
 
         if (id > 0) {
-            
+
             fileService.uploadFile(file);
 
             redirectAttrs.addFlashAttribute("message",
@@ -76,6 +76,8 @@ public class FotoController {
         } else {
             redirectAttrs.addAttribute("result", "failedAdded");
             redirectAttrs.addAttribute("name", foto.getName());
+            redirectAttrs.addFlashAttribute("message",
+                    "Error uploading " + file.getOriginalFilename() + "!");
 
         }
 

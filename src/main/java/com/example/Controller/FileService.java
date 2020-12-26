@@ -23,7 +23,8 @@ import java.nio.file.Path;
 @Service
 public class FileService {
 
-    @Value("${app.upload.dir:${user.home}}")
+    //@Value("${app.upload.dir:${user.home}}")
+    @Value("${app.upload.dir:/Users/Paulo/NetBeansProjects/FotosSpring/fotos}")
     public String uploadDir;
 
     public void uploadFile(MultipartFile file) {
