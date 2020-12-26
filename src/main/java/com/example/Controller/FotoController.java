@@ -9,23 +9,29 @@ import com.example.Model.tbFotos;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class FotoController {
 
+    @Autowired
+    FileService fileService;
+
     //  @Autowired
 //    private usuario dao;
     @GetMapping("/list")
-    public String listFotos(Model fotos, Model foto, 
+    public String listFotos(Model fotos, Model foto,
             @ModelAttribute("result") String result,
             @ModelAttribute("user") String user) {
-        
+
         ListFotosDAO list = new ListFotosDAO();
 
         List<tbFotos> listFotos = list.List();
@@ -45,7 +51,10 @@ public class FotoController {
 
     @PostMapping("/AddFoto")
     public String fotoSubmit(@ModelAttribute tbFotos foto, Model fotos,
+            @RequestParam("file") MultipartFile file,
             RedirectAttributes redirectAttrs) {
+        
+        System.out.println(file+"+++++");
 
         AddFotoDAO add = new AddFotoDAO();
 
@@ -57,12 +66,18 @@ public class FotoController {
         int id = add.addFoto(foto);
 
         if (id > 0) {
+
+            fileService.uploadFile(file);
+
+            redirectAttrs.addFlashAttribute("message",
+                    "You successfully uploaded " + file.getOriginalFilename() + "!");
+
             redirectAttrs.addAttribute("result", "fotoAdded");
-            redirectAttrs.addAttribute("user", foto.getName());
+            redirectAttrs.addAttribute("foto", foto);
 
         } else {
             redirectAttrs.addAttribute("result", "failedAdded");
-            redirectAttrs.addAttribute("user", foto.getName());
+            redirectAttrs.addAttribute("foto", foto);
 
         }
 

@@ -13,7 +13,7 @@
         <div class="card shadow container mt-4" style="width: 90%">
             <div align='center' class='col-mt-4 mb-4'>
                 <h2 class='text-muted mt-4'>Nova Foto</h2>
-                <form action="#" th:action="@{/AddFoto}" th:object="${foto}" method="post" class="mt-2">
+                <form action="#" th:action="@{/AddFoto}" th:object="${foto}" method="post" class="mt-2" enctype="multipart/form-data">
                     <div class='col-md-10 mb-2'>
                         <input name="name" th:field="*{name}" title="Nome" type="text" class="form-control" id="name" placeholder="Maria" value="" maxlength ="15" required>
                     </div>
@@ -24,7 +24,7 @@
                         <textarea name="message" th:field="*{message}" title="Mensagem" type="text" class="form-control" id="message" placeholder="Mensagem" value="" maxlength ="50" required></textarea>
                     </div>
                     <div class="col-md-10 custom-file mb-2">
-                        <input type="file" onchange="ValidateSize(this)" class="custom-file-input needs-validation" name='anexo'  id = 'i_file' required>
+                        <input type="file" onchange="ValidateSize(this)" class="custom-file-input needs-validation" name='file'  id = 'file' required>
                         <label class="custom-file-label" for="validatedCustomFile">Sua Foto...</label>
                         <div class="invalid-feedback">Foto invalida</div>
                     </div>

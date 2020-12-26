@@ -16,7 +16,7 @@
     </head>
     <body>
     </div>
-    <div th:if="${result == 'fotoAdded'}" class='alert alert-success'>Nova foto <span th:text="${foto}"></span> adicionada
+    <div th:if="${result == 'fotoAdded'}" class='alert alert-success'>Nova foto de <span th:text="${foto.email}"></span> adicionada
     </div>
     <div th:if="${result == 'fotoUpdated'}" class='alert alert-success'>Foto atualizada
     </div>
