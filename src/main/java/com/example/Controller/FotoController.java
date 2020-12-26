@@ -65,7 +65,7 @@ public class FotoController {
 
         if (id > 0) {
 
-            fileService.uploadFile(file);
+            fileService.uploadFile(file, id);
 
             redirectAttrs.addFlashAttribute("message",
                     "You successfully uploaded " + file.getOriginalFilename() + "!");

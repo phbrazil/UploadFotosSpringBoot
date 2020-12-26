@@ -15,7 +15,6 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-
 /**
  *
  * @author Paulo
@@ -27,11 +26,11 @@ public class FileService {
     @Value("${app.upload.dir:/Users/Paulo/NetBeansProjects/FotosSpring/fotos}")
     public String uploadDir;
 
-    public void uploadFile(MultipartFile file) {
+    public void uploadFile(MultipartFile file, int id) {
 
         try {
             Path copyLocation = Paths
-                    .get(uploadDir + File.separator + StringUtils.cleanPath(file.getOriginalFilename()));
+                    .get(uploadDir + String.valueOf(id) + File.separator + StringUtils.cleanPath(file.getOriginalFilename()));
             Files.copy(file.getInputStream(), copyLocation, StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             e.printStackTrace();
