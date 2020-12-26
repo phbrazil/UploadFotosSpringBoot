@@ -38,7 +38,7 @@
             <tbody>
                 <tr th:each="foto: ${fotos}">
                     <td th:text="${fotoStat.index+1}" />
-                    <td th:text="${foto.nome}" />
+                    <td th:text="${foto.name}" />
                     <td th:text="${foto.email}" />
                     <td th:text="${foto.message}" />
                     <td>
@@ -83,22 +83,22 @@
                                 <div class='col-md-12 mb-2'>
                                     <div class='row'>
                                         <div class='col-md-3'>
-                                            <label class='text-muted'>Username</label>
+                                            <label class='text-muted'>Nome</label>
                                         </div>
                                         <div class='col-md-9 mb-2'>
-                                            <input name="name" th:value="*{name}" title="Name" type="text" class="form-control" id="username" placeholder="Nome " maxlength ="15" required>
+                                            <input name="name" th:value="*{name}" title="Nome" type="text" class="form-control" id="name" placeholder="Nome " maxlength ="15" required>
                                         </div>
                                         <div class='col-md-3'>
-                                            <label class='text-muted'>Nome Completo</label>
+                                            <label class='text-muted'>Email</label>
                                         </div>
                                         <div class='col-md-9 mb-2'>
-                                            <input name="email" th:value="*{email}" title="Email" type="text" class="form-control" id="nome" placeholder="Email" maxlength ="80" required>
+                                            <input name="email" th:value="*{email}" title="Email" type="email" class="form-control" id="email" placeholder="Email" maxlength ="80" required>
                                         </div>
                                         <div class='col-md-3'>
-                                            <label class='text-muted'>Senha</label>
+                                            <label class='text-muted'>Mensagem</label>
                                         </div>
                                         <div class='col-md-9 mb-4'>
-                                            <textarea name="password" th:value="*{message}" title="Senha" type="text" class="form-control" id="message" placeholder="Mensagem" value="" maxlength ="50" required></textarea>
+                                            <textarea name="message" th:value="*{message}" title="Mensagem" type="text" class="form-control" id="message" placeholder="Mensagem" value="" maxlength ="50" required></textarea>
                                         </div>
                                         <input name="id"  th:value="*{id}" type="hidden" id="id">
                                         <input name="date"  th:value="*{date}" type="hidden" id="date">

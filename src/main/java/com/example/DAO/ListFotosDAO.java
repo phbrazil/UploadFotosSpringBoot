@@ -47,5 +47,14 @@ public class ListFotosDAO {
 
         return usuarios;
     }
+    
+    public static void main(String[] args) {
+        ListFotosDAO list = new ListFotosDAO();
+        
+        List<tbFotos> fotos = list.List();
+        
+        System.out.println(fotos.size()+"++++");
+        
+    }
 
 }

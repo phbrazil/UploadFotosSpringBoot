@@ -1,0 +1,12 @@
+com/example/DAO/GetFotoDAO.class
+com/example/Model/exceptions/PreexistingEntityException.class
+com/example/DAO/ListFotosDAO.class
+com/example/DAO/AddFotoDAO.class
+com/example/DAO/UpdateFotoDAO.class
+com/example/DAO/DeleteFotoDAO.class
+com/example/Model/tbFotosjpaController.class
+com/example/Controller/FotoController.class
+com/example/Controller/Main.class
+com/example/Model/tbFotos.class
+com/example/Model/exceptions/IllegalOrphanException.class
+com/example/Model/exceptions/NonexistentEntityException.class

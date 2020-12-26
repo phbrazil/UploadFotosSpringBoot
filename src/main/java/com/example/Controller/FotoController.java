@@ -9,17 +9,11 @@ import com.example.Model.tbFotos;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -34,10 +28,10 @@ public class FotoController {
         
         ListFotosDAO list = new ListFotosDAO();
 
-        List<tbFotos> listUsuarios = list.List();
+        List<tbFotos> listFotos = list.List();
 
-        fotos.addAttribute("usuarios", listUsuarios);
-        foto.addAttribute("usuario", new tbFotos());
+        fotos.addAttribute("fotos", listFotos);
+        foto.addAttribute("foto", new tbFotos());
         return "listaFotos";
     }
 
@@ -58,16 +52,17 @@ public class FotoController {
         String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
 
         foto.setDate(date);
+        foto.setPath("em branco");
 
-        int id = add.addUsuario(foto);
+        int id = add.addFoto(foto);
 
         if (id > 0) {
             redirectAttrs.addAttribute("result", "fotoAdded");
-            redirectAttrs.addAttribute("user", foto.getNome());
+            redirectAttrs.addAttribute("user", foto.getName());
 
         } else {
             redirectAttrs.addAttribute("result", "failedAdded");
-            redirectAttrs.addAttribute("user", foto.getNome());
+            redirectAttrs.addAttribute("user", foto.getName());
 
         }
 

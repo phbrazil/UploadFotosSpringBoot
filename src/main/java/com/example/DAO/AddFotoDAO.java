@@ -14,7 +14,7 @@ import org.hibernate.cfg.Configuration;
 
 public class AddFotoDAO {
 
-    public Integer addUsuario(tbFotos usuario) {
+    public Integer addFoto(tbFotos usuario) {
 
         int id;
 
