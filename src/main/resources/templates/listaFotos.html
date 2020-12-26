@@ -16,13 +16,13 @@
     </head>
     <body>
     </div>
-    <div th:if="${result == 'fotoAdded'}" class='alert alert-success'>Nova foto de <span th:text="${foto.email}"></span> adicionada
+    <div th:if="${result == 'fotoAdded'}" class='alert alert-success'><span th:text="${message}"></span>
     </div>
     <div th:if="${result == 'fotoUpdated'}" class='alert alert-success'>Foto atualizada
     </div>
     <div th:if="${result == 'fotoDeleted'}" class='alert alert-danger'>Foto deletada
     </div>
-    <div th:if="${result == 'failedAdded'}" class='alert alert-warning'>Erro ao incluir Foto <span th:text="${foto}"></span>
+    <div th:if="${result == 'failedAdded'}" class='alert alert-warning'><span th:text="${message}"></span>
     </div>
     <div align="center" class="mb-2 mt-4">
         <table  class="table-striped table-bordered table-hover" 

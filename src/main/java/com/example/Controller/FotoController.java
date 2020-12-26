@@ -54,8 +54,6 @@ public class FotoController {
             @RequestParam("file") MultipartFile file,
             RedirectAttributes redirectAttrs) {
         
-        System.out.println(file+"+++++");
-
         AddFotoDAO add = new AddFotoDAO();
 
         String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -66,18 +64,18 @@ public class FotoController {
         int id = add.addFoto(foto);
 
         if (id > 0) {
-
+            
             fileService.uploadFile(file);
 
             redirectAttrs.addFlashAttribute("message",
                     "You successfully uploaded " + file.getOriginalFilename() + "!");
 
             redirectAttrs.addAttribute("result", "fotoAdded");
-            redirectAttrs.addAttribute("foto", foto);
+            redirectAttrs.addAttribute("name", foto.getName());
 
         } else {
             redirectAttrs.addAttribute("result", "failedAdded");
-            redirectAttrs.addAttribute("foto", foto);
+            redirectAttrs.addAttribute("name", foto.getName());
 
         }
 
