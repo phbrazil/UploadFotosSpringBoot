@@ -28,7 +28,7 @@ public class FotoController {
     //  @Autowired
 //    private usuario dao;
     @GetMapping("/list")
-    public String listFotos(Model fotos, Model foto,
+    public String listFotos(Model fotos,
             @ModelAttribute("result") String result,
             @ModelAttribute("user") String user) {
 
@@ -37,7 +37,6 @@ public class FotoController {
         List<tbFotos> listFotos = list.List();
 
         fotos.addAttribute("fotos", listFotos);
-        foto.addAttribute("foto", new tbFotos());
         return "listaFotos";
     }
 
